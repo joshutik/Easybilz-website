@@ -1,0 +1,50 @@
+.nav, .btn-hero{
+    background-color: #10436B !important;
+
+}
+
+.btn-login {
+    color: #FFDE00 !important;
+    border: 2px solid #FFDE00 !important;
+}
+
+
+
+hero page
+.hero-page {
+    background-image: url(../assets/heroBg.png) !important;
+    background-size: cover;
+    background-position: center;
+    height: 112vh;
+}
+
+.hero-bg {
+    background-image: url(../assets/TransLogo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 48%;
+    height: 99vh;
+}
+.invest {
+    color: #10436B !important;
+}
+.grow{
+    color: #FFDE00 !important;
+}
+
+.who-card {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(180deg, #1C74BB 0%, #0D3555 100%);
+    min-height: 53vh  !important;
+
+}
+
+.vr {
+   height: 300px;
+}
+
+@media screen and (max-width:768px) {
+.who-card {
+    margin-top: 5rem !important;
+}
+}
