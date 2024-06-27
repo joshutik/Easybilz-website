@@ -2,10 +2,13 @@ import { useState } from "react";
 import "./Login.css";
 import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
-import logo from "../assets/Logo (1).png";
+import logo from "../assets/Logo.png";
 import { TailSpin } from "react-loader-spinner";
+// import { Link } from 'react-router-dom';
+// import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,6 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     try {
       const response = await fetch("https://dummyjson.com/auth/login", {
@@ -31,6 +35,7 @@ const Login = () => {
 
       // Handle successful login, e.g., set user session/token
       console.log("Login successful:", data);
+      // navigate("/loginpage");
       localStorage.setItem("token", data.token);
 
       // Redirect or update state to show user is logged in
@@ -105,14 +110,13 @@ const Login = () => {
                 <div className="container d-flex justify-content-between flex-wrap">
                   <div>
                     <input type="checkbox" />
-                  <span className="ms-2 rem">Remember me</span>
+                    <span className="ms-2 rem">Remember me</span>
                   </div>
                   <div className="">
                     <a href="#" className="forgot">
-                    Forgot password?
-                  </a>
+                      Forgot password?
+                    </a>
                   </div>
-                  
                 </div>
                 <div className="container mt-5 text-center">
                   <button
@@ -139,13 +143,13 @@ const Login = () => {
                 </div>
               </div>
             </div>
-          <div className="partarn position-absolute bottom-0 start-50 translate-middle-x">
-            <img
-              src={bottomPattern}
-              alt="bottom pattern"
-              className="img-fluid"
-            />
-          </div>
+            <div className="partarn position-absolute bottom-0 start-50 translate-middle-x">
+              <img
+                src={bottomPattern}
+                alt="bottom pattern"
+                className="img-fluid"
+              />
+            </div>
           </div>
         </form>
       </div>

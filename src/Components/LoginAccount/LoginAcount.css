@@ -1,3 +1,4 @@
+
 .register-bg {
     background-image: url(../assets/RegisterBg.png);
     background-repeat: no-repeat !important;
@@ -16,7 +17,8 @@
 }
 
 .partarn {
-    margin-top: -80px;
+    margin-top: -80px !important;
+    width: 100% !important;
 }
 
 @media screen and (max-width:766px) {
@@ -39,6 +41,7 @@
 
     .partarn {
         margin-top:0px !important;
+        width: 100% !important;
     }
 }
 
@@ -53,14 +56,6 @@
     } 
 
     .fogot, .register {
-        color: white;
+        color: white !important;
     }
 }
-
-.form-group {
-    margin-bottom: 15px;
-  }
-  
-  .alert {
-    margin-top: 15px;
-  }
