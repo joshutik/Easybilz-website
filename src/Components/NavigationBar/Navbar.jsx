@@ -1,9 +1,17 @@
-// import React from 'react'
+// import { useEffect } from 'react'
 import "./NavBar.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import logo1 from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  // useEffect(() => {
+  //   const bootstrap = require('bootstrap');
+  //   const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  //     target: '#navbar-example'
+  //   });
+  // }, []);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg fixed-top nav py-3">
@@ -17,7 +25,7 @@ const Navbar = () => {
             />
           </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler bg-light"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -33,25 +41,25 @@ const Navbar = () => {
                 <a
                   className="nav-link active text-light"
                   aria-current="page"
-                  href="#"
+                  href="#aboutUs"
                 >
                   About Us
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light" href="#">
+                <a className="nav-link text-light" href="#services">
                   What we do
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light" href="#">
+                <a className="nav-link text-light" href="#contact">
                   Contact Us
                 </a>
               </li>
             </ul>
             <div className="d-inline-flex flex-wrap">
               <Link
-                to="/login-acount"
+                to="/login"
                 className="btn btn-login border border-dark rounded-pill px-5 mx-2"
                 type="submit"
               >

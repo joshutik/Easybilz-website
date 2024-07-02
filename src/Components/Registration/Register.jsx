@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 // import './RegPayment.css'
-import { API_BASE_URL } from '../../config';
 import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import logo from "../assets/Logo.png";
@@ -20,7 +19,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const apiHostname = API_BASE_URL;
+  const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'https://easybilz-api.onrender.com';
   // const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'http://127.0.0.1:9090';
 
 
@@ -59,7 +58,7 @@ const Register = () => {
 
       const data = await response.json();
       console.log('Registration successful:', data);
-      navigate('/login');
+      navigate('/reg-payment');
 
       // Redirect or update state to show user is registered
     } catch (err) {

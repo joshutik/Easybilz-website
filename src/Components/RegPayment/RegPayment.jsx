@@ -5,10 +5,9 @@ import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import { Link, useNavigate } from "react-router-dom";
 
-import { API_BASE_URL } from '../../config';
-
 const RegPayment = () => {
-  const apiHostname = API_BASE_URL
+  const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'https://easybilz-api.onrender.com';
+  // const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'http://127.0.0.1:9090';
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
