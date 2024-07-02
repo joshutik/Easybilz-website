@@ -5,8 +5,11 @@ import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import logo from "../assets/Logo.png";
 import { TailSpin } from "react-loader-spinner";
+import {Link, useNavigate } from "react-router-dom";
+
 
 const Register = () => {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [otherNames, setOtherNames] = useState("");
   const [middleName, setMiddleName] = useState("");
@@ -15,6 +18,10 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'https://easybilz-api.onrender.com';
+  // const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'http://127.0.0.1:9090';
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,7 +35,8 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch('https://dummyjson.com/users/add', {
+      //const response = await fetch('https://dummyjson.com/users/add', {
+        const response = await fetch(`${apiHostname}/user/create/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,10 +58,11 @@ const Register = () => {
 
       const data = await response.json();
       console.log('Registration successful:', data);
+      navigate('/reg-payment');
 
       // Redirect or update state to show user is registered
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError('Registration  . Please try again.');
       console.error('Registration error:', err);
     } finally {
       setLoading(false);
@@ -67,15 +76,15 @@ const Register = () => {
           <div className="container-fluid col-md-6 col-sm-12">
             <div className="container text-light mt-5">
               <div className="position-absolute top-0 bottom-0 mt-4 ms-auto ms-lg-5">
-                <a className="" href="#">
-                  <img
-                    src={logo}
-                    alt="EasyBilz"
-                    width="170"
-                    height="100"
-                    className="img-fluid"
-                  />
-                </a>
+              <Link to={'/homepage'}>
+                    <img
+                      src={logo}
+                      alt="EasyBilz"
+                      width="170"
+                      height="100"
+                      className="img-fluid"
+                    />
+                  </Link>
               </div>
               <p className="fs-3 px-4 pt-5 mt-5">
                 Freedom starts with financial security. Grow yours today.
@@ -183,9 +192,9 @@ const Register = () => {
               <div className="text-center">
                 <p className="mt-lg-5 mt-md-3 mb-5 pb-3">
                   Already have an account? That&apos;s nice. 
-                  <a className="register fw-bold ms-1" href="#">
+                  <Link to={'/login'} className="register fw-bold ms-1">
                     Login
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

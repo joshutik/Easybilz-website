@@ -41,7 +41,7 @@
 
     .partarn {
         margin-top:0px !important;
-        width: 100% !important;
+
     }
 }
 
@@ -60,7 +60,7 @@
     }
 }
 
-.payment-card {
+.payment-card, button {
     background-color: #10436B !important;
 }
 

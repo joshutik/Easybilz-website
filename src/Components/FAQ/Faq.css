@@ -3,5 +3,9 @@
 }
 
 .faq-bg {
-background-color: #1C74BB;
+background-color: #94cdfb !important;
+}
+
+.faq-bg-1 {
+    background-color: aliceblue !important;
 }

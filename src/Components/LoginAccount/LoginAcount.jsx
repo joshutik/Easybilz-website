@@ -1,15 +1,21 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./LoginAcount.css";
 import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import logo from "../assets/Logo.png";
 import thumbs from "../assets/ThumbsUp.png";
 import { Link } from "react-router-dom";
-import Login from "../Loginpage/Login";
-
-// import { TailSpin } from "react-loader-spinner";
 
 const Register = () => {
+  const [firstName, setName] = useState('');
+
+  useEffect(() => {
+    const storedName = localStorage.getItem('firstName');
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
+
   return (
     <div className="container-fluid">
       <form>
@@ -17,7 +23,7 @@ const Register = () => {
           <div className="container-fluid col-md-6 col-sm-12">
             <div className="container text-light mt-5">
               <div className="position-absolute top-0 bottom-0 mt-4 ms-auto ms-lg-5">
-                <a className="" href="#">
+                <Link to={'/'} className="">
                   <img
                     src={logo}
                     alt="EasyBilz"
@@ -25,7 +31,7 @@ const Register = () => {
                     height="100"
                     className="img-fluid"
                   />
-                </a>
+                </Link>
               </div>
               <p className="fs-3 px-4 pt-5 mt-5">
                 Freedom starts with financial security. Grow yours today.
@@ -37,9 +43,9 @@ const Register = () => {
               <img src={topPattern} alt="top pattern" className="img-fluid" />
             </div>
             <div className="container my-5">
-              <a href="#" className="ms-5 text-decoration-none">
-              <i className="bi bi-chevron-left"></i> Go back
-              </a>
+              <Link to={'/reg-payment'} className="ms-5 text-decoration-none">
+                <i className="bi bi-chevron-left"></i> Go back
+              </Link>
             </div>
             <h2 className="fw-bold text-center">Register</h2>
             <div className="w-75 mx-auto">
@@ -54,15 +60,13 @@ const Register = () => {
                       />
                     </div>
                     <p>
-                      Thank you Sophia and welcome to the Easybillz family, Get
-                      ready to manage your money with ease! Check your inbox
-                      sophia@gmail.com for a confirmation message and your
+                      Thank you {firstName} and welcome to the Easybillz family. Get
+                      ready to manage your money with ease! Check your inbox for a confirmation message and your
                       account details.
                     </p>
                   </div>
-
                   <div className="container my-5 text-center">
-                    <Link to={Login}
+                    <Link to={'/login-account'}
                       type="submit"
                       className="bg btn btn-primary border-0 login-btn rounded-5 px-5 fw-bold register-btn"
                     >
@@ -72,12 +76,12 @@ const Register = () => {
                 </div>
               </div>
               <div className="partarn position-absolute bottom-0 start-50 translate-middle-x">
-              <img
-                src={bottomPattern}
-                alt="bottom pattern"
-                className="img-fluid"
-              />
-            </div>
+                <img
+                  src={bottomPattern}
+                  alt="bottom pattern"
+                  className="img-fluid"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -87,19 +91,3 @@ const Register = () => {
 };
 
 export default Register;
-
-
-// import React from 'react';
-// import './LoginAcount.css';
-
-// const Confirmation = ({ onPrev }) => {
-//   return (
-//     <div className="confirmation-container">
-//       <h2>Thank You!</h2>
-//       <p>Your registration has been successfully completed.</p>
-//       <button className="btn btn-secondary" onClick={onPrev}>Back</button>
-//     </div>
-//   );
-// };
-
-// export default Confirmation;

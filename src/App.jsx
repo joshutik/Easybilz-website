@@ -1,6 +1,9 @@
 // import { Navbar } from "react-bootstrap";
 // import { Outlet } from "react-router-dom";
 import "./App.css";
+
+import Main from './Components/Main/Main';
+
 // import NavBar from './Components/NavigationBar/Navbar'
 // import Stepper from "./Components/Stepper/Stepper";
 // import Review from "./Components/Review/Review";
@@ -12,12 +15,16 @@ import "./App.css";
 // import Login from './Components/Loginpage/Login'
 // import Register from "./Components/Registration/Register";
 // import RegPayment from "./Components/RegPayment/RegPayment";
-import LoginAcount from './Components/LoginAccount/LoginAcount'
+// import LoginAcount from './Components/LoginAccount/LoginAcount'
 // import Footer from "./Components/Footer/Footer";
+
 
 function App() {
   return (
     <div>
+
+      <Main/>
+
       {/* <NavBar/> */}
       {/* <Heropage/> */}
       {/* <Login/> */}
@@ -29,7 +36,7 @@ function App() {
   {/* <Services/> */}
   {/* <Stepper/> */}
   {/* <RegPayment/> */}
-  <LoginAcount/>
+  {/* <LoginAcount/> */}
   {/* <Outlet /> */}
     </div>
   );

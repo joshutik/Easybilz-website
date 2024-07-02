@@ -1,5 +1,6 @@
 // import React from 'react'
 import './Calltoaction.css'
+import { Link } from 'react-router-dom'
 
 const Calltoaction = () => {
   return (
@@ -9,7 +10,7 @@ const Calltoaction = () => {
                 Become our member today and open doors to great opportunities.
             </h2>
             <div className='my-3'>
-                <button className='btn btn-primary btn-lg border-0 w-50 py-4 rounded-pill cta-btn'>Register</button>
+                <Link to={'/register'} className='btn btn-primary btn-lg border-0 w-50 py-4 rounded-pill cta-btn'>Register</Link>
             </div>
         </div>
       

@@ -4,13 +4,16 @@ import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import logo from "../assets/Logo.png";
 import { TailSpin } from "react-loader-spinner";
-// import { Link } from 'react-router-dom';
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'https://easybilz-api.onrender.com';
+// const apiHostname = import.meta.env.VITE_API_HOSTNAME || 'http://127.0.0.1:9090';
 
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -19,12 +22,12 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://dummyjson.com/auth/login", {
+      const response = await fetch(`${apiHostname}/user/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, remember_me: rememberMe }),
       });
 
       if (!response.ok) {
@@ -34,11 +37,16 @@ const Login = () => {
       const data = await response.json();
 
       // Handle successful login, e.g., set user session/token
-      console.log("Login successful:", data);
-      // navigate("/loginpage");
-      localStorage.setItem("token", data.token);
+      // console.log("Login successful:", data);
+      localStorage.setItem("authtoken", data.access_token);
+      localStorage.setItem("user", data.user_id);
+      localStorage.setItem("firstName", data.firstName);
+      // localStorage.setItem("middleName", data.middleName);
+      // localStorage.setItem("otherName", data.otherName);
+      navigate("/membership-page");
 
-      // Redirect or update state to show user is logged in
+     
+
     } catch (err) {
       setError("Invalid email or password. Please try again.");
       console.error("Login error:", err);
@@ -55,7 +63,7 @@ const Login = () => {
             <div className="container-fluid col-md-6 col-sm-12">
               <div className="container text-light mt-5">
                 <div className="position-absolute top-0 bottom-0 mt-4 ms-auto ms-lg-5">
-                  <a className="" href="#">
+                  <Link to={'/homepage'}>
                     <img
                       src={logo}
                       alt="EasyBilz"
@@ -63,7 +71,7 @@ const Login = () => {
                       height="100"
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <p className="fs-3 px-4 pt-5 mt-5">
@@ -109,7 +117,11 @@ const Login = () => {
                 </div>
                 <div className="container d-flex justify-content-between flex-wrap">
                   <div>
-                    <input type="checkbox" />
+                    <input 
+                      type="checkbox" 
+                      checked={rememberMe} 
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                    />
                     <span className="ms-2 rem">Remember me</span>
                   </div>
                   <div className="">
@@ -136,9 +148,9 @@ const Login = () => {
                 <div className="text-center">
                   <p className="mt-lg-5 mt-md-3 mb-5 pb-5">
                     Don&apos;t have an account? No worries.{" "}
-                    <a className="register fw-bold" href="#">
+                    <Link className="register fw-bold" to="/register">
                       Register now
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

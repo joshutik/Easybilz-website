@@ -4,9 +4,9 @@ import { Accordion as BootstrapAccordion } from 'react-bootstrap';
 const Faq = () => {
   return (
     <div className='container-fluid mt-5'>
-      <div className="container bg-secondary rounded-4 mx-auto bg-faq w-75 p-5">
+      <div className="container bg-secondary rounded-4 mx-auto bg-faq w-100 p-5">
         <h2 className='text-center my-4'>Frequently Asked Questions</h2>
-        <BootstrapAccordion defaultActiveKey="0">
+        <BootstrapAccordion defaultActiveKey="0" className='faq-bg-1'>
           <BootstrapAccordion.Item eventKey="0">
             <BootstrapAccordion.Header>Is Easy-billz Cooperative approved?</BootstrapAccordion.Header>
             <BootstrapAccordion.Body  className='faq-bg text-light'>
