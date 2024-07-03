@@ -22,22 +22,7 @@ import Main from './Components/Main/Main';
 function App() {
   return (
     <div>
-
       <Main/>
-
-      {/* <NavBar/> */}
-      {/* <Heropage/> */}
-      {/* <Login/> */}
-  {/* <Calltoaction/> */}
-  {/* <ContactUs/> */}
-    {/* <Faq/> */}
-  {/* <Register/> */}
-  {/* <Review/> */}
-  {/* <Services/> */}
-  {/* <Stepper/> */}
-  {/* <RegPayment/> */}
-  {/* <LoginAcount/> */}
-  {/* <Outlet /> */}
     </div>
   );
 }
