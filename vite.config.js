@@ -10,9 +10,12 @@ const customConfig = {
 // Export both Vite configuration and custom configuration
 export default defineConfig({
   plugins: [react()],
+  logLevel: 'info', // or 'debug'
+  build: {
+    rollupOptions: {
+      external: ['react-loader-spinner'],
+    },
+  },
 });
 
 export { customConfig };
-
-
-

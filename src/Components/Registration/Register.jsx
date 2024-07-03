@@ -4,7 +4,7 @@ import { useState } from "react";
 import topPattern from "../assets/upPattern.png";
 import bottomPattern from "../assets/Patterns.png";
 import logo from "../assets/Logo.png";
-import { TailSpin } from "react-loader-spinner";
+import { Circles } from "react-loader-spinner";
 import {Link, useNavigate } from "react-router-dom";
 
 
@@ -183,7 +183,7 @@ const Register = () => {
                   className="bg btn btn-primary border-0 login-btn rounded-5 px-5 fw-bold register-btn"
                   disabled={loading}
                 >
-                  {loading ? <TailSpin color="#fff" height={24} width={24} /> : "Continue"}
+                  {loading ? <Circles color="#fff" height={24} width={24} /> : "Continue"}
                 </button>
               </div>
               <div className="container">
